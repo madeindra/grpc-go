@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package pb;
+
+option go_package = "github.com/madeindra/grpc-go;grpc_go";
+
+import "google/protobuf/Empty.proto";
+
+message Todo {
+  int64 ID = 1;
+  string Title = 2;
+  string Content = 3;
+}
+
+message TodoList {
+  repeated Todo todos = 1;
+}
+
+message TodoRequest {
+  string Title = 1;
+  string Content = 2;
+}
+
+message TodoResponse {
+   Todo todo = 1;
+}
+
+service TodoService {
+  rpc Create(TodoRequest) returns (TodoResponse){}
+  rpc Read(google.protobuf.Empty) returns (TodoList){}
+}
