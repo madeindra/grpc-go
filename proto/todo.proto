@@ -4,7 +4,7 @@ package pb;
 
 option go_package = "github.com/madeindra/grpc-go;grpc_go";
 
-import "google/protobuf/Empty.proto";
+import "google/protobuf/empty.proto";
 
 message Todo {
   int64 ID = 1;
